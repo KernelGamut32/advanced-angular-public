@@ -1,0 +1,13 @@
+.critical {
+  background-color: yellow;
+}
+
+.back-order {
+  background-color: red;
+}
+
+td {
+  padding: 5px;
+  min-width: 150px;
+  text-align: center;
+}

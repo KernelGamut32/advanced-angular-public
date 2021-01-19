@@ -1,0 +1,34 @@
+<div>
+  <table>
+    <tr>
+      <th>Catalog Number</th>
+      <th>Description</th>
+      <th>Unit Cost</th>
+      <th>Quantity in Stock</th>
+      <th>Inventory Status</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let product of products$ | async; trackBy: trackProductsById">
+      <td [attr.data-id]="product.id">{{ product.catalogNumber }}</td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.unitCost | currency }}</td>
+      <td>{{ product.quantityInStock }}</td>
+      <td
+        [ngClass]="{
+          critical: product.inventoryStatus === inventoryStatus.Critical,
+          'back-order':
+            product.inventoryStatus === inventoryStatus['Back Order']
+        }"
+      >
+        {{ inventoryStatus[product.inventoryStatus] }}
+      </td>
+      <td><a [routerLink]="['/products', product.id]">Details</a></td>
+      <td><a [routerLink]="" (click)="deleteProduct(product.id)">Delete</a></td>
+    </tr>
+  </table>
+  <br />
+  <div>
+    <button (click)="addNew()">Add New Product</button>
+  </div>
+</div>

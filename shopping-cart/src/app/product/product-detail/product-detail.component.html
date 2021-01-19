@@ -1,0 +1,28 @@
+<h1>Product Details</h1>
+<form [formGroup]="productForm" (ngSubmit)="commitChanges()">
+  <input type="hidden" name="id" formControlName="id" />
+  <div>
+    <label>Catalog Number:</label>
+    <input type="text" name="catalogNumber" placeholder="Catalog Number" formControlName="catalogNumber" />
+    <span class="invalid" *ngIf="catalogNumber.touched && catalogNumber.errors?.required">Catalog number is required</span>
+  </div>
+  <div>
+    <label>Description:</label>
+    <input type="text" name="description" placeholder="Description" formControlName="description" />
+  </div>
+  <div>
+    <label>Unit Cost:</label>
+    <input type="number" name="unitCost" placeholder="Unit Cost" formControlName="unitCost" />
+    <span class="invalid" *ngIf="unitCost.touched && unitCost.errors?.required">Unit cost is required</span>
+    <span class="invalid" *ngIf="unitCost.touched && unitCost.errors?.min">Unit cost must be greater than or equal to $1.00</span>
+  </div>
+  <div>
+    <label>Quantity in Stock:</label>
+    <input type="number" name="quantityInStock" placeholder="Quantity in Stock" formControlName="quantityInStock" />
+    <span class="invalid" *ngIf="quantityInStock.touched && quantityInStock.errors?.required">Quantity in stock is required</span>
+  </div>
+  <div>
+    <button type="submit" [disabled]="productForm.invalid">Commit Changes</button>
+    <button type="button" (click)="cancel()">Cancel</button>
+  </div>
+</form>
