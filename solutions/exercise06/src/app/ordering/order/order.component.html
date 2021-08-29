@@ -1,0 +1,6 @@
+<div>
+  <app-order-header [orderHeader]="orderHeader" (shipped)="onShipped($event)"></app-order-header>
+</div>
+<div>
+  <app-order-detail [orderDetail]="orderDetail" *appUserRole="['admin', 'supervisor']; secondaryRoles: ['manager']; currentRole: 'admin'"></app-order-detail>
+</div>

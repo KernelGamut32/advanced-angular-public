@@ -1,0 +1,36 @@
+<h1>Enter New Order</h1>
+<form [formGroup]="orderForm">
+  <div>
+    <label>Order Description:</label>
+    <input type="text" name="description" placeholder="description" formControlName="description" />
+    <p class="invalid" *ngIf="description.touched && description.errors?.required">Description is required</p>
+    <p class="invalid" *ngIf="description.touched && description.errors?.minlength">Description must be at least 10 characters long</p>
+    <p class="invalid" *ngIf="description.touched && description.errors?.maxlength">Description must no more than 25 characters long</p>
+    <p class="invalid" *ngIf="description.touched && description.errors?.cannotContainMeanWords">Whoa, watch the sailor mouth!</p>
+    <p *ngIf="showDescriptionHint">Description should be at least 10 and no more than 25 characters long</p>
+  </div>
+  <div>
+    <label>Line Items:</label>
+    <table formArrayName="orderDetails">
+      <tr>
+        <th>Product Number</th>
+        <th>Quantity</th>
+      </tr>
+      <tr *ngFor="let orderDetail of orderDetails.controls; index as i" [formGroupName]="i">
+        <td>
+          <input type="text" placeholder="Product Number" formControlName="productNumber" />
+        </td>
+        <td>
+          <input type="number" placeholder="Quantity" formControlName="quantity" />
+        </td>
+      </tr>
+    </table>
+    <button (click)="addLineItem()">Add Line Item</button>
+  </div>
+  <div>
+    <p>Entered description: {{description.value}}</p>
+  </div>
+  <button [disabled]="!orderForm.valid" (click)="submit()">Create Order</button>
+  <button (click)="populateForm()">Auto-Populate</button>
+  <button (click)="resetOrderDetailQuantities()">Reset Order Quantities</button>
+</form>

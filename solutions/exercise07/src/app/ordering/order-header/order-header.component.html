@@ -1,0 +1,17 @@
+<div>
+  <button (click)="toggleSort()">Toggle</button>
+  <table>
+    <tr>
+      <th>Order Number</th>
+      <th>Description</th>
+      <th>Customer Name</th>
+      <th>Total</th>
+    </tr>
+    <tr *ngFor="let order of orders | orderSorter:'customerName':'total'; trackBy: trackOrdersById">
+      <td [attr.data-id]="order.id">{{order.orderNumber}}</td>
+      <td>{{order.description}}</td>
+      <td>{{order.customerName}}</td>
+      <td>{{order.total | currency}}</td>
+    </tr>
+  </table>
+</div>

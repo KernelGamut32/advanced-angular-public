@@ -1,0 +1,22 @@
+<div>
+  <div *ngIf="order; else loadingView">
+    <h1>Order #{{order.orderNumber}}</h1>
+    <table>
+      <tr>
+        <th>Product Number</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+      <tr *ngFor="let orderDetail of order.orderDetails | orderSorter:'productNumber'; trackBy: trackOrderDetailsById">
+        <td [attr.data-id]="orderDetail.id">{{orderDetail.productNumber}}</td>
+        <td>{{orderDetail.quantity}}</td>
+        <td>{{orderDetail.total | currency}}</td>
+      </tr>
+    </table>
+    </div>
+  <button (click)="goBack()">Go Back</button>
+</div>
+
+<ng-template #loadingView>
+  <h1>Data Loading!</h1>
+</ng-template>

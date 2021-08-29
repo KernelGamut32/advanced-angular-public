@@ -1,0 +1,30 @@
+<div>
+  <div>
+    <h3>Inputs</h3>
+    <div>
+      <label>Task One Input:</label>
+      <input type="text" [(ngModel)]="taskOneInput" />
+      <label>Task One Duration:</label>
+      <input type="number" [(ngModel)]="taskOneDuration" />
+    </div>
+    <div>
+      <label>Task Two Input:</label>
+      <input type="text" [(ngModel)]="taskTwoInput" />
+      <label>Task Two Duration:</label>
+      <input type="number" [(ngModel)]="taskTwoDuration" />
+    </div>
+    <div>
+      <label>Task Three Input:</label>
+      <input type="text" [(ngModel)]="taskThreeInput" />
+      <label>Task Three Duration:</label>
+      <input type="number" [(ngModel)]="taskThreeDuration" />
+    </div>
+    <button (click)="doWork()">Do Work</button>
+  </div>
+  <div>
+    <h3>Results</h3>
+    <p>Result of task one: {{result1}}</p>
+    <p>Result of task two: {{result2}}</p>
+    <p>Result of task three: {{result3}}</p>
+  </div>
+</div>

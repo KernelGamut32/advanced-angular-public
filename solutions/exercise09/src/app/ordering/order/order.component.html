@@ -1,0 +1,6 @@
+<div>
+  <app-order-header></app-order-header>
+</div>
+<div>
+  <app-order-detail [orderDetail]="orderDetail" *appUserRole="['admin', 'supervisor']; secondaryRoles: ['manager']; currentRole: 'admin'"></app-order-detail>
+</div>
