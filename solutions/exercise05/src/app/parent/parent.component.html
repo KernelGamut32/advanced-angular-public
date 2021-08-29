@@ -1,0 +1,9 @@
+<app-child [listOfThings]="animals" [theObject]="profile"></app-child>
+<div>
+  <label>Animal:</label>
+  <input type="text" [(ngModel)]="newAnimal" class="input" />
+  <button (click)="addNewAnimal()">Add a New Animal</button>
+</div>
+<div>
+  <button (click)="updateProfile()">Update Profile</button>
+</div>

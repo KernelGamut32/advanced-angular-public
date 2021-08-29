@@ -1,0 +1,13 @@
+<div>
+  <p>Here is the list of things:</p>
+  <ul>
+    <li *ngFor="let thing of listOfThings">{{thing}}</li>
+  </ul>
+</div>
+<div>
+  <p>Here is the object:</p>
+  <p>{{theObject | json}}</p>
+</div>
+<div>
+  <button (click)="refresh()">Refresh</button>
+</div>
