@@ -10,7 +10,7 @@ import { OrderHeader } from '../order-header.model';
 export class OrderComponent implements OnInit {
 
   orderHeader = new OrderHeader();
-  orderDetail = new OrderDetail();
+  private orderDetail = new OrderDetail();
 
   constructor() { }
 
@@ -26,10 +26,11 @@ export class OrderComponent implements OnInit {
     this.orderDetail.productNumber = 'AAA33200';
     this.orderDetail.quantity = 25;
     this.orderDetail.total = 199.99;
+
+    this.orderHeader.orderDetails.push(this.orderDetail);
   }
 
   onShipped(orderHeader: OrderHeader): void {
     console.log(orderHeader);
   }
-
 }

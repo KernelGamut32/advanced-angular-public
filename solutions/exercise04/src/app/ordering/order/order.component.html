@@ -2,5 +2,5 @@
   <app-order-header [orderHeader]="orderHeader" (shipped)="onShipped($event)"></app-order-header>
 </div>
 <div>
-  <app-order-detail [orderDetail]="orderDetail"></app-order-detail>
+  <app-order-detail [orderDetail]="orderHeader.orderDetails[0]"></app-order-detail>
 </div>
